@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+echo "This is our front-end repository, our server is at https://github.com/dcsil/blockcomet-dev"
