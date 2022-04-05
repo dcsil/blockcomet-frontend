@@ -1,25 +1,5 @@
 #!/usr/bin/env bash
 
-install_postgres() {
-  if [ "$(uname)" == "Darwin" ]; then
-    brew cask list | grep postgres > /dev/null 2>&1
-    if [ $? -eq 1 ] && [ ! -d /Applications/Postgres.app ]; then
-      brew cask install postgres
-    else
-      echo "postgres already installed"
-      open /Applications/Postgres.app
-    fi
-  else
-    command -v psql > /dev/null 2>&1
-    if [ $? -eq 0 ]; then
-      echo "postgres already installed"
-    else
-      sudo apt-get update
-      sudo apt install postgresql postgresql-contrib
-    fi
-  fi
-}
-
 install_homebrew() {
   if [ "$(uname)" == "Darwin" ]; then
     echo "Installing Homebrew"
@@ -74,4 +54,19 @@ if [ $? -eq 0 ]; then
   echo "yarn already installed"
 else
   install_yarn
+fi
+
+if [ ! -f /usr/bin/mongod ]; then
+  echo "Installing MongoDB"
+  if [ "$(uname)" == "Darwin" ]; then
+    brew tap mongodb/brew
+    brew install mongodb-community@5.0
+  else
+    sudo apt-get install gnupg
+    wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+    echo "deb http://repo.mongodb.org/apt/debian buster/mongodb-org/5.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+    sudo apt-get update
+    sudo apt-get install -y mongodb-org
+  fi
+else echo "MongoDB already installed"
 fi

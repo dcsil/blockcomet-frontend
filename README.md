@@ -1,3 +1,5 @@
+# BlockComet Frontend
+
 # BlockComet Developer's Guide
 
 ## Setup Instructions
@@ -17,7 +19,7 @@ git clone https://github.com/dcsil/blockcomet-dev
 
 2\. Run bin/bootstrap (Ensure you are in the root folder)             
 
-This should install the languages and front & backend dependencies 
+This should install the languages and frontend dependencies 
 ```
 ./bin/bootstrap
 ```
@@ -27,12 +29,6 @@ This should install the languages and front & backend dependencies
 https://localhost:3001 should have the web app
 ```
 ./app/client/start_app
-```
-4\. Go to app/server and run the following commands: 
-```
-poetry shell
-poetry install 
-poetry run python ./src/main.py
 ```
 
 #### (Optional) Running tests
@@ -45,10 +41,10 @@ For all tests (From root folder):
 ```
 yarn test
 ```
-2. server tests (Ensure inside server folder):
-```
-poetry run pytest
-```
+
+### Backend
+The repository for our backend is https://github.com/dcsil/blockcomet-dev
+Please clone that and follow setup instructions to run server. 
 
 ## Resources
 [BlockComet - Google Drive](https://drive.google.com/drive/folders/1Y2Rrer1_6Pn5j8HI7jxWZaM5FnN1wZ13)
