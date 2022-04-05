@@ -24,8 +24,8 @@ const getFormFields = (setUserName, setPassword) => {
     }]
     return (
         <Form>
-            {data.map((input) =>
-                <Form.Control className="search-bar" size="lg" type={input.type} data-testid={input.testId} placeholder={input.placeholder} onChange={input.onChange} />
+            {data.map((input, index) =>
+                <Form.Control key={index} className="search-bar" size="lg" type={input.type} data-testid={input.testId} placeholder={input.placeholder} onChange={input.onChange} />
             )}
         </Form>
     )

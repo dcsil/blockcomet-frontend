@@ -4,5 +4,5 @@ DIR="$(pwd)"
 echo ${DIR}
 
 echo "Running frontend tests"
-cd $DIR/app/client/
+cd $DIR/client/
 yarn test --coverage

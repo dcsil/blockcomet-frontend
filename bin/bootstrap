@@ -16,7 +16,7 @@ source $HOME/.bash_profile
 
 echo "Installing FE Dependencies"
 # install dependencies for front-end 
-cd $DIR/app/client/
+cd $DIR/client/
 yarn install
 
 echo "############Installation Complete################"
