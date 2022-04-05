@@ -3,15 +3,12 @@ import './css/Validate.css';
 import React from "react";
 import axios from 'axios';
 import { serverUrl } from './config';
-import Navigationbar from './Navigationbar';
+import Navigationbar from './AdminNavigationbar'
 import success from './assets/success.png';
 import failure from './assets/failure.png';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 function Success(props) {
-    const columns = [{'text': 'hi', 'dataField': 'hi'},
-                    {'text': 'yo', 'dataField': 'yo'}]
-    const productDetails = [{'hi': 1, 'yo': 2}]
     return ( 
         <div className="Success">
             <Container className="align-items-center">  
