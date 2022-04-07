@@ -9,7 +9,13 @@ import Validate from './Validate';
 import CreateProduct from './CreateProduct';
 import Dashboard from './Dashboard';
 import { useEffect } from 'react';
+import * as Sentry from "@sentry/react";
 import React from "react";
+
+Sentry.init({
+  dsn: "https://9b3d81b382e74643a9647070e5092443@o358880.ingest.sentry.io/6146694",
+  tracesSampleRate: 1.0,
+});
 
 function App() {
   useEffect(() => {
