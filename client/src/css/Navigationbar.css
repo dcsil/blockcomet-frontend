@@ -2,6 +2,9 @@
     height: 70px;
     width: 70px;
 }
+#navbar-back:hover {
+  color: #ddbe7d;
+}
 
 .logo-navbar {
     height: 60px;
@@ -9,6 +12,7 @@
 }
 
 #bc-navbar {
+    margin-left: 13%;
     justify-content: center;
     text-align: center;
 }
@@ -25,5 +29,33 @@
   outline: none;
   border: none;
   color: #ddbe7d;
+  outline: none !important;
+  outline-offset: none !important;
+  box-shadow: none !important
 } 
 
+.logout-btn:active {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #ddbe7d;
+  box-shadow: none !important
+} 
+
+.logout-btn:focus {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #ddbe7d;
+  outline: none !important;
+  outline-offset: none !important;
+  box-shadow: none !important
+} 
+
+h5 {
+  font-size: 16px;
+}
+
+#logo-link {
+  text-decoration: none;
+}

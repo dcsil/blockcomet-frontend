@@ -64,14 +64,19 @@ body {
   font-weight: bold;
   border: none;
 } 
-.login-btn-txt:hover {
+
+.login-btn:active {
   background-color: transparent;
   outline: none;
   border: none;
   color: #ddbe7d;
+  box-shadow: none;
 } 
 
-
+.login-btn:focus {
+  background-color: #ddbe7d;
+  box-shadow: none;
+} 
 
 .login-btn:hover {
   background-color: #000; 

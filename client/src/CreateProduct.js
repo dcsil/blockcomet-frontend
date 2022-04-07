@@ -81,7 +81,7 @@ function CreateProduct() {
         <div className="CreateProduct" data-testid="create-product-container">
             <Navigationbar />
             <div className="create-prod-txt">Create New Product</div>
-            <Container className="home-container">
+            <Container className="create-prod-container">
                 {dataFields.map((input, index) => {
                     return (
                         <Row className="data-field-row" key={index}>
