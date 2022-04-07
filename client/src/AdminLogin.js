@@ -1,7 +1,6 @@
 import { Form, Button } from 'react-bootstrap';
 import './css/AdminLogin.css';
 import { useState } from 'react'
-import logo from './assets/blockcomet_logo_no_name.png';
 import { useNavigate } from "react-router-dom";
 import { Stack, } from '@mui/material';
 import axios from 'axios'

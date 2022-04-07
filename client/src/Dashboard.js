@@ -47,7 +47,7 @@ function Dashboard() {
         { text: 'ID', dataField: 'Product ID' },
         { text: 'Brand', dataField: 'Brand' },
         { text: 'Product Name', dataField: 'Product Name' },
-        { text: 'Date', dataField: 'Date of Purchase' }
+        { text: 'Date', dataField: 'Date of Production' }
     ];
     return (
         <div>
