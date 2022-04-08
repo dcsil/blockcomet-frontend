@@ -54,10 +54,10 @@ function Dashboard() {
             <Navigationbar />
             <div className="Dashboard" data-testid="dashboard-container">
                 <h4> <b>Products</b> </h4>
-                <h5 onClick={() => { navigate('/create') }}> Add Product </h5>
-                <h5 onClick={() => { navigate('/') }} >  Validate Product </h5>
+                <h5 data-testid="addProduct" onClick={() => { navigate('/create') }}> Add Product </h5>
+                <h5 data-testid="validateProduct" onClick={() => { navigate('/') }} >  Validate Product </h5>
             </div>
-            <BootstrapTable striped bordered hover columns={columns} data={products} keyField='ID' pagination={paginationFactory()} />
+            <BootstrapTable striped bordered hover columns={columns} data={products} data-testid="dashboard-table" keyField='ID' pagination={paginationFactory()} />
         </div>
     )
 }
