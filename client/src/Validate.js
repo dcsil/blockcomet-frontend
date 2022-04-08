@@ -42,6 +42,7 @@ class Validate extends React.Component {
         };
     }
     componentDidMount() {
+        document.title = "BlockComet | Validate"
         this.loadData();
     }
 

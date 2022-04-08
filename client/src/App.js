@@ -8,7 +8,6 @@ import Home from "./Home";
 import Validate from './Validate';
 import CreateProduct from './CreateProduct';
 import Dashboard from './Dashboard';
-import { useEffect } from 'react';
 import * as Sentry from "@sentry/react";
 import React from "react";
 
@@ -30,10 +29,6 @@ export const Routing = () => {
 }
 
 function App() {
-  useEffect(() => {
-    document.title = "BlockComet"
-  }, []);
-
   return (
     <div className="App">
       <BrowserRouter>

@@ -17,6 +17,7 @@ function Dashboard() {
             console.log(token)
             navigate('/login')
         }
+        document.title = "BlockComet | Admin Dashboard"
         var config = {
             method: 'get',
             url: `${serverUrl}/get_products`,
