@@ -1,12 +1,11 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '../App';
-import { AdminLogin } from '../AdminLogin';
+import { Routing } from '../App'
 import { render, screen, fireEvent } from "@testing-library/react";
-import { createMemoryHistory } from 'history'
 import { MemoryRouter } from 'react-router';
-import { Router } from 'react-router-dom'
+import axios from 'axios';
+import { act } from "react-dom/test-utils";
 
+jest.mock('axios', () => jest.fn());
 // pay attention to write it at the top level of your file
 // const mockedUsedNavigate = jest.fn();
 // jest.mock('react-router-dom', () => ({
@@ -20,23 +19,19 @@ import { Router } from 'react-router-dom'
 //     })
 // }));
 describe('Admin login', () => {
-    it('renders without crashing', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<App />, div);
-    });
-
-    test("admin login page renders", () => {
-        const { getByTestId } = render(
-            <App />
-        );
-        const adminLoginButton = screen.getByTestId('admin-login-btn')
-        expect(adminLoginButton).toBeTruthy()
-        fireEvent.click(adminLoginButton)
+    test("admin login page renders", async () => {
+        await act(async () => {
+            const { getByTestId } = render(
+                <MemoryRouter initialEntries={['/login']}>
+                    <Routing />
+                </MemoryRouter>)
+        }
+        )
         const adminLoginPage = screen.getByTestId('admin-login-container')
         expect(adminLoginPage).toBeTruthy()
 
-        expect(getByTestId("username-bar")).toBeTruthy();
-        expect(getByTestId("password-bar")).toBeTruthy();
-        expect(getByTestId("login-btn")).toBeTruthy();
+        expect(screen.getByTestId("username-bar")).toBeTruthy();
+        expect(screen.getByTestId("password-bar")).toBeTruthy();
+        expect(screen.getByTestId("login-btn")).toBeTruthy();
     });
 })
