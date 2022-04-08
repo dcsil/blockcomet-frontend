@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
-import AdminLogin from '../AdminLogin';
+import { AdminLogin } from '../AdminLogin';
 import { render, screen, fireEvent } from "@testing-library/react";
 import { createMemoryHistory } from 'history'
 import { MemoryRouter } from 'react-router';

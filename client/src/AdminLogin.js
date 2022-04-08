@@ -9,7 +9,7 @@ import qs from 'qs';
 import useToken from './useToken'
 import { getLogo } from './helpers'
 
-const getFormFields = (setUserName, setPassword) => {
+export const getFormFields = (setUserName, setPassword) => {
     const data = [{
         type: "text",
         testId: "username-bar",
@@ -30,7 +30,7 @@ const getFormFields = (setUserName, setPassword) => {
     )
 }
 
-function AdminLogin() {
+export function AdminLogin() {
     const [username, setUserName] = useState('')
     const [password, setPassword] = useState('')
 
@@ -94,4 +94,4 @@ function AdminLogin() {
     )
 }
 
-export default AdminLogin;
+

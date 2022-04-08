@@ -3,7 +3,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import AdminLogin from "./AdminLogin";
+import { AdminLogin } from "./AdminLogin";
 import Home from "./Home";
 import Validate from './Validate';
 import CreateProduct from './CreateProduct';
@@ -17,6 +17,18 @@ Sentry.init({
   tracesSampleRate: 1.0,
 });
 
+export const Routing = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="login" element={<AdminLogin />} />
+      <Route path="validate/:id" element={<Validate />} />
+      <Route path="dashboard" element={<Dashboard />} />
+      <Route path="create" element={<CreateProduct />} />
+    </Routes>
+  )
+}
+
 function App() {
   useEffect(() => {
     document.title = "BlockComet"
@@ -25,13 +37,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="login" element={<AdminLogin />} />
-          <Route path="validate/:id" element={<Validate />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="create" element={<CreateProduct />} />
-        </Routes>
+        <Routing />
       </BrowserRouter>
     </div>
   )
