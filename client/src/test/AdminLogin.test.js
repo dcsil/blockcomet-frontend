@@ -6,18 +6,7 @@ import axios from 'axios';
 import { act } from "react-dom/test-utils";
 
 jest.mock('axios', () => jest.fn());
-// pay attention to write it at the top level of your file
-// const mockedUsedNavigate = jest.fn();
-// jest.mock('react-router-dom', () => ({
-//     ...jest.requireActual('react-router-dom'),
-//     useNavigate: () => mockedUsedNavigate,
-// }));
-// jest.mock("react-router-dom", () => ({
-//     ...(jest.requireActual("react-router-dom")),
-//     useNavigate: () => ({
-//         navigate: jest.fn().mockImplementation(() => ({}))
-//     })
-// }));
+
 describe('Admin login', () => {
     test("admin login page renders", async () => {
         await act(async () => {

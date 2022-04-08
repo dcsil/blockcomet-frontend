@@ -1,53 +1,38 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from '../App';
-import { AdminLogin } from '../AdminLogin';
 import { render, screen, fireEvent } from "@testing-library/react";
-import { createMemoryHistory } from 'history'
 import { MemoryRouter, Route, Routes } from 'react-router';
-import { Router } from 'react-router-dom'
-import Validate from '../Validate'
-import Home from '../Home'
 import { Routing } from '../App'
+import { act } from "react-dom/test-utils";
+import axios from 'axios';
+jest.mock('axios');
+
 describe('Validate Tests,', () => {
-    test("Validate component renders", () => {
-        // global.window = Object.create(window);
-        // const url = "/validate/1234";
-        // Object.defineProperty(window, "location", {
-        //     value: {
-        //         pathname: url
-        //     },
-        //     writable: true
-        // });
-        // jest.spyOn(Router, 'useParams').mockReturnValue({ id: '1234' });
-        // const { getByTestId } = render(
-        //     <App />
-        // );
+    test("Validate Sucess component renders", async () => {
+        axios.get.mockResolvedValueOnce({
+            status: 200,
+            data: { data: { product_data: [{ "key": "Brand", "value": "rohit" }, { "key": "Product Name", "value": "Jeans" }, { "key": "Product ID", "value": "69399d44f92a4c0f31180321d4a6bfcdc48f7f841b3461e25bd83b53d7755c45" }, { "key": "Date of Production", "value": "02/03./22" }], "added_by": "blockcomet_mvp" } }
+        });
 
+        await act(async () => {
+            render(
+                <MemoryRouter initialEntries={['/validate/1234']}>
+                    <Routing />
+                </MemoryRouter>)
+        })
+        const validateSucess = screen.getByTestId('success')
+        expect(validateSucess).toBeTruthy()
+    });
 
-        // const { getByTestId } = render(
-        //     <MemoryRouter initialEntries={['/validate/1234']}>
-        //         <Routing />
-        //     </MemoryRouter>)
-        // const validateButton = screen.getByTestId('success')
-        // expect(validateButton).toBeTruthy()
-        // fireEvent.click(validateButton)
-        // const history = createMemoryHistory()
-        // history.push('/login')
-        // console.log("history", history)
-        // const { getByTestId } = render(
-        //     <Router history={history}>
-        //         <AdminLogin />
-        //     </Router>
-        // );
-        // const adminLoginButton = screen.getByTestId('admin-login-btn')
-        // expect(adminLoginButton).toBeTruthy()
-        // fireEvent.click(adminLoginButton)
-        // const adminLoginPage = screen.getByTestId('admin-login-container')
-        // expect(adminLoginPage).toBeTruthy()
+    test("Validate Failure component renders", async () => {
+        axios.get.mockResolvedValueOnce(Promise.reject());
 
-        // expect(getByTestId("username-bar")).toBeTruthy();
-        // expect(getByTestId("password-bar")).toBeTruthy();
-        // expect(getByTestId("login-btn")).toBeTruthy();
+        await act(async () => {
+            render(
+                <MemoryRouter initialEntries={['/validate/1234']}>
+                    <Routing />
+                </MemoryRouter>)
+        })
+        const validateFailure = screen.getByTestId('failure')
+        expect(validateFailure).toBeTruthy()
     });
 })

@@ -33,7 +33,7 @@ function Home() {
     }
     return (
         <div className="Home">
-            <Container className="home-container">
+            <Container className="home-container" data-testid="home-container">
                 <Form>
                     <Row className="align-items-center">
                         <Col className="align-items-right">
