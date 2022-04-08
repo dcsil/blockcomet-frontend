@@ -51,6 +51,7 @@ function CreateProduct() {
 
     const getProductID = async () => {
         const response = await makeGetReq('mock_unique_id', token)
+        console.log("Response", response)
         return response.data.hashed_uid
     }
 

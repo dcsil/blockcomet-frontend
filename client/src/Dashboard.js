@@ -52,7 +52,7 @@ function Dashboard() {
     return (
         <div>
             <Navigationbar />
-            <div className="Dashboard" data-testid="create-product-container">
+            <div className="Dashboard" data-testid="dashboard-container">
                 <h4> <b>Products</b> </h4>
                 <h5 onClick={() => { navigate('/create') }}> Add Product </h5>
                 <h5 onClick={() => { navigate('/') }} >  Validate Product </h5>

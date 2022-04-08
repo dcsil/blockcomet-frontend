@@ -9,25 +9,25 @@ import failure from './assets/failure.png';
 import BootstrapTable from 'react-bootstrap-table-next';
 
 function Success(props) {
-    return ( 
+    return (
         <div className="Success">
-            <Container className="align-items-center">  
-                    <img src={success} className="success-img" alt="success" data-testid="success" />
-                    <i><h4>Verified by <b>{props.productDetails[0].Brand}</b></h4></i>
-                    <BootstrapTable columns={props.columns} data={props.productDetails} keyField='Product ID' />
+            <Container className="align-items-center">
+                <img src={success} className="success-img" alt="success" data-testid="success" />
+                <i><h4>Verified by <b>{props.productDetails[0].Brand}</b></h4></i>
+                <BootstrapTable columns={props.columns} data={props.productDetails} keyField='Product ID' />
             </Container>
-        </div>   
+        </div>
     )
 }
 
 function Failure(props) {
-    return ( 
+    return (
         <div className="Failure">
-            <Container className="align-items-center">  
-                    <img src={failure} className="failure-img" alt="failure" data-testid="failure" />
-                    <i><h4>Unable to verify authenticity of product <b>{props.productID}</b></h4></i>
+            <Container className="align-items-center">
+                <img src={failure} className="failure-img" alt="failure" data-testid="failure" />
+                <i><h4>Unable to verify authenticity of product <b>{props.productID}</b></h4></i>
             </Container>
-        </div>    
+        </div>
     )
 }
 
@@ -45,27 +45,28 @@ class Validate extends React.Component {
         this.loadData();
     }
 
-    loadData() {
+
+    loadData = () => {
         axios.get(`${serverUrl}/get_product/${this.state.productID}`)
-        .then(res => {
-            if (res.status == 200) {
-                const productInfo = {};
-                const columns = [];
-                for (let i = 0; i < res.data.data.product_data.length; i++) {
-                    productInfo[res.data.data.product_data[i].key] = res.data.data.product_data[i].value;
-                    columns.push({'text': res.data.data.product_data[i].key, 'dataField': res.data.data.product_data[i].key});
+            .then(res => {
+                if (res.status == 200) {
+                    const productInfo = {};
+                    const columns = [];
+                    for (let i = 0; i < res.data.data.product_data.length; i++) {
+                        productInfo[res.data.data.product_data[i].key] = res.data.data.product_data[i].value;
+                        columns.push({ 'text': res.data.data.product_data[i].key, 'dataField': res.data.data.product_data[i].key });
+                    }
+                    this.setState({
+                        status: 'Success',
+                        productDetails: [productInfo],
+                        columns: columns
+                    });
                 }
+            }).catch((error) => {
                 this.setState({
-                    status: 'Success',
-                    productDetails: [productInfo],
-                    columns: columns
+                    status: 'Failure'
                 });
-            }
-        }).catch((error) => {
-            this.setState({
-                status: 'Failure'
-            });
-        })
+            })
     }
 
     render() {
@@ -75,16 +76,16 @@ class Validate extends React.Component {
         else if (this.state.status === 'Success') {
             return (
                 <div>
-                <Navigationbar backPage="/"/>
-                <Success productDetails={this.state.productDetails} columns={this.state.columns}/>
+                    <Navigationbar backPage="/" />
+                    <Success productDetails={this.state.productDetails} columns={this.state.columns} />
                 </div>
             )
         }
         else if (this.state.status === 'Failure') {
             return (
                 <div>
-                <Navigationbar backPage="/"/>
-                <Failure productID={this.state.productID}/>
+                    <Navigationbar backPage="/" />
+                    <Failure productID={this.state.productID} />
                 </div>
             )
         }
