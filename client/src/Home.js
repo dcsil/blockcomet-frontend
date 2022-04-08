@@ -43,7 +43,7 @@ function Home() {
                             <Form.Control className="search-bar" size="lg" type="text" data-testid="search-bar" placeholder={SEARCH_PLACEHOLDER} />
                         </Col>
                         <Col>
-                            <Button onClick={validateProduct} className="search-btn" variant="primary" size="lg" data-testid="search-btn"> {validateString} </Button>
+                            <Button type="submit" onClick={validateProduct} className="search-btn" variant="primary" size="lg" data-testid="search-btn"> {validateString} </Button>
                         </Col>
                     </Row>
                 </Form>
