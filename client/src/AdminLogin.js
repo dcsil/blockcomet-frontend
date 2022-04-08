@@ -8,6 +8,7 @@ import { serverUrl } from './config'
 import qs from 'qs';
 import useToken from './useToken'
 import { getLogo } from './helpers'
+import { Link } from "react-router-dom";
 
 export const getFormFields = (setUserName, setPassword) => {
     const data = [{
@@ -80,8 +81,10 @@ export function AdminLogin() {
             <Stack justifyContent="center"
                 alignItems="center"
                 spacing={3} className="admin-login-stack">
-                <div className="login-logo">
-                    {getLogo("login-logo-img")}
+                <div className="login-logo"> 
+                    <Link id="logo-link" to="/">
+                        {getLogo("login-logo-img")}
+                    </Link>
                 </div>
                 <div className="login-form">
                     {getFormFields(setUserName, setPassword)}

@@ -5,12 +5,18 @@ import { useNavigate } from "react-router-dom";
 import { BsPlayCircle } from "react-icons/bs";
 import useToken from './useToken'
 import { getLogo } from './helpers'
+import { useEffect } from 'react';
 
 function Home() {
     const SEARCH_PLACEHOLDER = "Enter Product ID"
     const validateString = "Validate"
     const adminLoginString = "Admin Login"
     const dashboard = "Dashboard"
+
+    useEffect(() => {
+        document.title = "BlockComet"
+      }, []);
+
     let navigate = useNavigate();
     const validateProduct = e => {
         e.preventDefault()

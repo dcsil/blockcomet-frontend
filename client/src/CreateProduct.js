@@ -25,6 +25,7 @@ function CreateProduct() {
             productData[2].value = await getProductID()
             setDataFields(productData)
         }
+        document.title = "BlockComet | Create Product"
     }, []);
     const [dataFields, setDataFields] = useState([{ "key": "Brand", "value": "" }, {
         "key": "Product Name", "value": ""
