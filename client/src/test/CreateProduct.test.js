@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from 'react-router';
 import { Routing } from '../App'
 import { act } from "react-dom/test-utils";
+import * as helper from '../helpers'
 import axios from 'axios';
 jest.mock('axios', () => jest.fn());
 
@@ -13,6 +14,9 @@ describe('Create Product Tests,', () => {
         window.localStorage.__proto__.getItem = jest.fn(() => {
             return JSON.stringify("2452wt53634rf34")
         });
+        jest.spyOn(helper, 'makeGetReq').mockImplementationOnce(() => {
+            return { status: 200, data: "gucci" }
+        })
         axios.mockResolvedValue({
             status: 200,
             data: {
