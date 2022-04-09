@@ -26,7 +26,8 @@ This should install the languages and frontend dependencies
 
 https://localhost:3001 should have the web app
 ```
-./app/client/start_app
+cd client
+./start_app.sh
 ```
 
 #### (Optional) Running tests
