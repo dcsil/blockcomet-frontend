@@ -4,6 +4,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from 'react-router';
 import axios from 'axios';
 import { act } from "react-dom/test-utils";
+import * as helper from '../helpers'
 
 jest.mock('axios');
 
@@ -13,7 +14,9 @@ describe('Admin login', () => {
         window.localStorage.__proto__.getItem = jest.fn(() => {
             return JSON.stringify("2452wt53634rf34")
         });
-
+        jest.spyOn(helper, 'makeGetReq').mockImplementationOnce(() => {
+            return { status: 200, data: "gucci" }
+        })
         axios.mockResolvedValueOnce({
             status: 200,
             data: { data: { access_token: JSON.stringify("2452wt53634rf34") } }

@@ -2,9 +2,9 @@ import React from 'react';
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from 'react-router';
 import { Routing } from '../App'
-import { useNavigate } from "react-router";
 import { act } from "react-dom/test-utils";
 import axios from 'axios';
+import * as helper from '../helpers'
 
 jest.mock('axios', () => jest.fn());
 
@@ -14,7 +14,9 @@ describe('Dashboard Tests,', () => {
         window.localStorage.__proto__.getItem = jest.fn(() => {
             return JSON.stringify("2452wt53634rf34")
         });
-
+        jest.spyOn(helper, 'makeGetReq').mockImplementation(() => {
+            return { status: 200, data: "gucci" }
+        })
         axios.mockResolvedValue({
             status: 200,
             data: {
@@ -46,28 +48,6 @@ describe('Dashboard Tests,', () => {
 
         const dashboardTable = screen.getByTestId('dashboard-container')
         expect(dashboardTable).toBeTruthy()
-      });
-
-    test("clicking add product button goes to CreateProduct", async () => {
-        await act(async () => {
-            render(
-                <MemoryRouter initialEntries={['/dashboard']}>
-                    <Routing />
-                </MemoryRouter>)
-        })
-
-        const addProductButton = screen.getByTestId('addProduct');
-        expect(addProductButton).toBeTruthy();
-
-        axios.mockResolvedValueOnce({
-            status: 200,
-            data: {
-                hashed_uid: "97245242hut2343"
-            },
-        });
-
-        await act(async ()=>{fireEvent.click(addProductButton)})    
-        expect(screen.getByTestId("create-product-container")).toBeTruthy();
     });
 
     test("clicking validate product button goes to home page", async () => {
@@ -81,7 +61,7 @@ describe('Dashboard Tests,', () => {
         const validateProductButton = screen.getByTestId('validateProduct');
         expect(validateProductButton).toBeTruthy();
 
-        await act(async ()=>{fireEvent.click(validateProductButton)})    
+        await act(async () => { fireEvent.click(validateProductButton) })
         expect(screen.getByTestId("home-container")).toBeTruthy();
     });
 })
