@@ -46,7 +46,7 @@ function Home() {
                             {getLogo("logo-img")}
                         </Col>
                         <Col>
-                            <Form.Control className="search-bar" size="lg" type="text" data-testid="search-bar" placeholder={SEARCH_PLACEHOLDER} />
+                            <Form.Control className="search-bar" size="lg" type="text" data-testid="search-bar" placeholder={SEARCH_PLACEHOLDER} autoFocus/>
                         </Col>
                         <Col>
                             <Button type="submit" onClick={validateProduct} className="search-btn" variant="primary" size="lg" data-testid="search-btn"> {validateString} </Button>
