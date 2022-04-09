@@ -43,6 +43,12 @@ body {
   border: none;
 }
 
+.login-btn-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 8%;
+}
+
 .login-bar:focus {
   background-color: transparent;
   outline: none;

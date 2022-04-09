@@ -12,7 +12,6 @@
 }
 
 #bc-navbar {
-    margin-left: 13%;
     justify-content: center;
     text-align: center;
 }
@@ -58,4 +57,9 @@ h5 {
 
 #logo-link {
   text-decoration: none;
+}
+
+.user-dropdown {
+  color: black;
+  margin-right: 1%
 }

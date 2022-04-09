@@ -23,11 +23,11 @@ export const getFormFields = (setUserName, setPassword) => {
         onChange: event => setPassword(event.target.value),
     }]
     return (
-        <Form>
+        <>
             {data.map((input, index) =>
                 <Form.Control key={index} className="search-bar" size="lg" type={input.type} data-testid={input.testId} placeholder={input.placeholder} onChange={input.onChange} />
             )}
-        </Form>
+        </>
     )
 }
 
@@ -65,7 +65,8 @@ export function AdminLogin() {
             });
     }
     const { setToken } = useToken();
-    const onLogin = async () => {
+    const onLogin = async (e) => {
+        e.preventDefault()
         const tokenResponse = await loginUser()
         if (tokenResponse.status == 200) {
             setToken(tokenResponse.data?.access_token)
@@ -81,16 +82,18 @@ export function AdminLogin() {
             <Stack justifyContent="center"
                 alignItems="center"
                 spacing={3} className="admin-login-stack">
-                <div className="login-logo"> 
+                <div className="login-logo">
                     <Link id="logo-link" to="/">
                         {getLogo("login-logo-img")}
                     </Link>
                 </div>
                 <div className="login-form">
-                    {getFormFields(setUserName, setPassword)}
-                </div>
-                <div className="login-btn-container">
-                    <Button className="login-btn" variant="primary" size="lg" data-testid="login-btn" onClick={onLogin} > {loginString} </Button>
+                    <Form>
+                        {getFormFields(setUserName, setPassword)}
+                        <div className="login-btn-container">
+                            <Button className="login-btn" variant="primary" size="lg" data-testid="login-btn" onClick={onLogin} type="submit"> {loginString} </Button>
+                        </div>
+                    </Form>
                 </div>
             </Stack>
         </div>
