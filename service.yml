@@ -1,13 +1,13 @@
 tools:
   exceptions: https://sentry.io/organizations/dcsil/issues/?project=6146694
   logging: https://console.cloud.google.com/logs/query;cursorTimestamp=2022-04-04T00:24:44.469355Z?referrer=search&project=blockcomet&query=%0A
-  ci: https://github.com/dcsil/blockcomet-dev/actions
+  ci: https://github.com/dcsil/blockcomet-frontend/actions
 
 services:
   production: https://blockcomet-frontend-6dkam7pfeq-uc.a.run.app
 
 docs:
-  getting_started: https://github.com/dcsil/blockcomet-dev/blob/main/README.md
+  getting_started: https://github.com/dcsil/blockcomet-frontend/blob/main/README.md
   
 commands:
   bootstrap: bin/bootstrap
@@ -15,3 +15,4 @@ commands:
   database: bin/mongodb
   server: bin/server
   test: bin/test
+  test_coverage: bin/test_coverage
