@@ -10,10 +10,10 @@ Instructions for Mac, Windows, Linux
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Installation and Usage (Local Development)
-1\. Clone this [repository](https://github.com/dcsil/blockcomet-dev)
+1\. Clone this [repository](https://github.com/dcsil/blockcomet-frontend)
 
 ```
-git clone https://github.com/dcsil/blockcomet-dev
+git clone https://github.com/dcsil/blockcomet-frontend
 ```
 
 
@@ -32,9 +32,13 @@ https://localhost:3001 should have the web app
 ```
 
 #### (Optional) Running tests
-For all tests (From root folder):
+For all frontend tests (From root folder):
 ``` 
 ./bin/test
+```
+For all frontend tests with coverage (From root folder):
+``` 
+./bin/test_coverage
 ```
 
 1. webapp tests (Ensure inside client folder):
