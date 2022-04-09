@@ -48,7 +48,7 @@ yarn test
 
 ### Backend
 The repository for our backend is https://github.com/dcsil/blockcomet-dev
-Please clone that and follow setup instructions to run server. 
+Please clone that and follow setup instructions to run our server. 
 
 ## Resources
 [BlockComet - Google Drive](https://drive.google.com/drive/folders/1Y2Rrer1_6Pn5j8HI7jxWZaM5FnN1wZ13)
