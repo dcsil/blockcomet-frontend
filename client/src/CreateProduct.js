@@ -76,7 +76,7 @@ function CreateProduct() {
                     navigate(`/validate/${id}`)
                 }
             }).catch(function (error) {
-                alert("Failed to Create Product, Please Try Again!")
+                alert("Failed to Create Product. \nPlease ensure that the Brand matches your username or authorized brand & try again.")
             });
     }
     return (
