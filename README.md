@@ -1,6 +1,4 @@
-# BlockComet Frontend
-
-# BlockComet Developer's Guide
+# BlockComet Frontend Developer's Guide
 
 ## Setup Instructions
 
